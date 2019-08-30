@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.content_main.*
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-
+    var a = "sb"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
