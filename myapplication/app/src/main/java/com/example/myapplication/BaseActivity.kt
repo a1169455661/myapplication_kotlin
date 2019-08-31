@@ -13,14 +13,20 @@ import kotlinx.android.synthetic.main.content_main.*
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-    var a = "sb"
-    override fun onCreate(savedInstanceState: Bundle?) {
+    final override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        setSupportActionBar(toolbar)
+        if (Isprint()) {
+            /*显示*/
+            setSupportActionBar(toolbar)
+        }else{
+            /*不显示*/
+
+        }
         main_ll.addView(View.inflate(this@BaseActivity, layout(), null))
         toolbar.title = setTitle()
-
+        initView()
+        initData()
     }
 
     /**
@@ -33,7 +39,21 @@ abstract class BaseActivity : AppCompatActivity() {
      */
     abstract fun layout(): Int
 
+    /**
+     *  设置标题
+     */
     abstract fun setTitle(): String
+    /**
+     *  布局的初始化
+     */
+    open fun initView(){}
+    /**
+     * 数据的初始化
+     */
+    open fun initData(){}
+    /**
+     *
+     */
 
 
 }
